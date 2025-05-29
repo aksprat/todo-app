@@ -8,8 +8,8 @@ from werkzeug.utils import secure_filename
 DATABASE_URL = os.environ.get('DATABASE_URL')
 SPACES_ENDPOINT = 'https://todo-app.sgp1.digitaloceanspaces.com'
 SPACES_REGION = 'sgp1'
-SPACES_KEY = os.environ.get('DO_SPACES_KEY', 'YOUR_SPACES_KEY')
-SPACES_SECRET = os.environ.get('DO_SPACES_SECRET', 'YOUR_SPACES_SECRET')
+SPACES_KEY = os.environ('DO_SPACES_KEY')
+SPACES_SECRET = os.environ('DO_SPACES_SECRET')
 SPACES_BUCKET = 'todo-app'
 
 app = Flask(__name__)
@@ -70,4 +70,4 @@ def delete(todo_id):
 if __name__ == '__main__':
     with app.app_context():
         db.create_all()
-    app.run(debug=True) 
+    app.run(host='0.0.0.0', port=8080, debug=True) 
