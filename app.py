@@ -8,8 +8,8 @@ from werkzeug.utils import secure_filename
 DATABASE_URL = os.environ.get('DATABASE_URL')
 SPACES_ENDPOINT = 'https://todo-app.sgp1.digitaloceanspaces.com'
 SPACES_REGION = 'sgp1'
-SPACES_KEY = os.environ('DO_SPACES_KEY')
-SPACES_SECRET = os.environ('DO_SPACES_SECRET')
+SPACES_KEY = os.environ['DO_SPACES_KEY']
+SPACES_SECRET = os.environ['DO_SPACES_SECRET']
 SPACES_BUCKET = 'todo-app'
 
 app = Flask(__name__)
