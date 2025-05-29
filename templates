@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todo App</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Todo App</h1>
+        <form method="POST" enctype="multipart/form-data">
+            <input type="text" name="text" placeholder="Enter a todo..." required>
+            <input type="file" name="file">
+            <button type="submit">Add Todo</button>
+        </form>
+        <ul class="todo-list">
+            {% for todo in todos %}
+            <li>
+                <span>{{ todo.text }}</span>
+                {% if todo.file_url %}
+                    <a href="{{ todo.file_url }}" target="_blank">Attachment</a>
+                {% endif %}
+                <a href="/delete/{{ todo.id }}" class="delete">Delete</a>
+            </li>
+            {% else %}
+            <li>No todos yet!</li>
+            {% endfor %}
+        </ul>
+    </div>
+</body>
+</html> 
